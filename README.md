@@ -16,13 +16,12 @@
 - P2 헤드를 추가하면 레이어 개수가 달라져서 기존 pt를 “완벽 동일 구조”로는 못 씁니다.
 - 대신 Ultralytics는 매칭되는 레이어만 부분 로드(transfer)하는 방식으로 파인튜닝이 가능합니다.
 - => P2 head는 아직 학습이 안 됐고, 
-pretrained weight는 P3~P5 기준으로만 최적화돼있으므로,
+pretrained weight는 P3~P5 기준으로만 최적화가 되어있으므로,
 - 현재 테스트는 정확도 X, 경향성 확인 O
 
 이미지 사이즈
 - imgsz=640  → actual input: 384x640
 - imgsz=1088 → actual input: 640x1088
-- imgsz=1440 → actual input: 768x1440
 
 가상환경 세팅 :
 - python 3.11
@@ -30,4 +29,15 @@ pretrained weight는 P3~P5 기준으로만 최적화돼있으므로,
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 pip install ultralytics
 ```
+---
+yolo+p2 학습 :
+1. yolo11l+p2 + dataset.yaml(coco9) + 640 -> 80(Backbone Freeze) + 20(Unfreeze) epoch
+2. yolo11l+p2 + cessna_fhd.yaml + 640/960 -> 40(Backbone Freeze) + 20(Unfreeze) epoch
 
+non-p2 학습 :
+1. yolo11l + cessna_fhd.yaml + 640/960 -> 40(Backbone Freeze) + 20(Unfreeze) epoch
+
+---
+yolo11l, yolo11x(x는 너무 오래 걸려서 중단)
+- p2 - 640, 960
+- non-p2 - 

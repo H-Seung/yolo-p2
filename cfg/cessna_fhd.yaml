@@ -1,0 +1,7 @@
+path: .
+train: data/cessna_fhd/train.txt # train images (relative to 'path') 4 images
+val: data/cessna_fhd/val.txt # val images (relative to 'path') 4 images
+
+# Classes
+names:
+  0: cessna

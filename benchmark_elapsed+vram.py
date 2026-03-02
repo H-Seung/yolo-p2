@@ -1,3 +1,4 @@
+# 사전학습모델(custom 학습x)로 640, 1088, 1440 사이즈 이미지에 추론하고 elapsed time, vram 측정하여 csv로 저장
 from ultralytics import YOLO
 from pathlib import Path
 import random

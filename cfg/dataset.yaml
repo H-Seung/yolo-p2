@@ -1,0 +1,14 @@
+train: data/coco9/train.txt
+val: data/coco9/val.txt
+
+nc: 9
+names:
+  - person
+  - car
+  - motorcycle
+  - airplane
+  - bus
+  - truck
+  - bird
+  - cat
+  - dog
