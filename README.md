@@ -13,31 +13,32 @@
 원본 yaml 파일 (D:\SW-test\yolo+p2\.venv\Lib\site-packages\ultralytics\cfg\models\11\yolo11.yaml)을
 복사하여 yolo11_p2.yaml로 저장 후 수정
 
-- P2 헤드를 추가하면 레이어 개수가 달라져서 기존 pt를 “완벽 동일 구조”로는 못 씁니다.
-- 대신 Ultralytics는 매칭되는 레이어만 부분 로드(transfer)하는 방식으로 파인튜닝이 가능합니다.
-- => P2 head는 아직 학습이 안 됐고, 
-pretrained weight는 P3~P5 기준으로만 최적화가 되어있으므로,
-- 현재 테스트는 정확도 X, 경향성 확인 O
+- P2 헤드를 추가하면 레이어 개수가 달라져서 기존 pt를 “완벽 동일 구조”로는 못 씀.
+- 대신 Ultralytics는 매칭되는 레이어만 부분 로드(transfer)하는 방식으로 파인튜닝이 가능.
+- => 파인튜닝하여 성능을 확인해야 함.
 
 이미지 사이즈
 - imgsz=640  → actual input: 384x640
 - imgsz=1088 → actual input: 640x1088
 
-가상환경 세팅 :
+### 가상환경 세팅
 - python 3.11
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 pip install ultralytics
 ```
 ---
+### 학습 설정
 yolo+p2 학습 :
 1. yolo11l+p2 + dataset.yaml(coco9) + 640 -> 80(Backbone Freeze) + 20(Unfreeze) epoch
-2. yolo11l+p2 + cessna_fhd.yaml + 640/960 -> 40(Backbone Freeze) + 20(Unfreeze) epoch
+2. yolo11l+p2 + cessna_fhd.yaml + 640/960/1088 -> 40(Backbone Freeze) + 20(Unfreeze) epoch
 
 non-p2 학습 :
-1. yolo11l + cessna_fhd.yaml + 640/960 -> 40(Backbone Freeze) + 20(Unfreeze) epoch
+1. yolo11l + cessna_fhd.yaml + 640/960/1088 -> 40(Backbone Freeze) + 20(Unfreeze) epoch
 
 ---
-yolo11l, yolo11x(x는 너무 오래 걸려서 중단)
-- p2 - 640, 960
-- non-p2 - 
+### 학습 모델
+- yolo11x (x 모델은 너무 오래 걸려서 중단) 
+- yolo11l 
+- yolo11l+p2 
+- (추가실험) yolo11l+p2+p1

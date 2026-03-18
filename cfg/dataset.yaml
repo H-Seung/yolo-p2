@@ -1,3 +1,4 @@
+path: /home/rs02/NAS/yolo-p2
 train: data/coco9/train.txt
 val: data/coco9/val.txt
 
