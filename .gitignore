@@ -5,3 +5,5 @@ __pycache__/
 runs/
 wandb/
 runs_p2_test
+*.mp4
+*.log
