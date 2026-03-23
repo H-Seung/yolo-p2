@@ -51,6 +51,9 @@ non-p2 학습 :
 - 비교 모델 : yolo11l vs. yolo11l+p2
 - 비교 항목 : bbox 시각화 + small object 카운트 + 누적 detection
 - 결과 : yolo11l+p2가 원거리 작은 객체를 더 잘 탐지
+![demo_video_yolo+p2_Bell206L.png](demo/demo_video_yolo%2Bp2_Bell206L.png)
+
+compare video
 
 원거리 접근 시:
 ![Bell206L_far_detect.png](demo/Bell206L_far_detect.png)
