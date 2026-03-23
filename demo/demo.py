@@ -72,7 +72,7 @@ def draw_top_right_info(frame, model_name, fps, cum_det, cum_small):
 
     lines = [
         model_name,
-        f"SMALL_THRESH: {SMALL_THRESH:.3f}",
+        f"SMALL_THRESH: {SMALL_THRESH:.4f}",
         f"FPS: {fps:.1f}",
         f"Cumulative Detections: {cum_det}",
         f"Cumulative Small: {cum_small}",
