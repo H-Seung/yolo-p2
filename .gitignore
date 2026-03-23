@@ -7,3 +7,4 @@ wandb/
 runs_p2_test
 *.mp4
 *.log
+*.mkv

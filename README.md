@@ -42,3 +42,17 @@ non-p2 학습 :
 - yolo11l 
 - yolo11l+p2 
 - (추가실험) yolo11l+p2+p1
+
+---
+### 데모 영상
+- 입력 영상 : Bell206L FHD (1920x1080, 30fps)
+- 모델 입력 해상도 : 960
+- 모델 학습 : coco9 + bell206l (Backbone Freeze 40 epoch + Unfreeze 20 epoch)
+- 비교 모델 : yolo11l vs. yolo11l+p2
+- 비교 항목 : bbox 시각화 + small object 카운트 + 누적 detection
+- 결과 : yolo11l+p2가 원거리 작은 객체를 더 잘 탐지
+
+원거리 접근 시:
+![Bell206L_far_detect.png](demo/Bell206L_far_detect.png)
+근거리 접근 시:
+![Bell206L_close_detect.png](demo/Bell206L_close_detect.png)
